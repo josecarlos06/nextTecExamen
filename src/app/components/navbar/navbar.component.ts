@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { abecedarioUIColores } from '../../utils/index';
 
 @Component({
   selector: 'app-navbar',
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
-
+  title = "Carlos Medina";
 }
