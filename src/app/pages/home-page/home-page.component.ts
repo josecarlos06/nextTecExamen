@@ -108,7 +108,7 @@ export class HomePageComponent {
   }
 
   onDelete(id: string) {
-    const filters = this.user.filter((u) => u.id !== id); // Filtra el trabajo eliminado
+    const filters = this.user.filter((u) => u.id !== id);
     this.user = filters;
     this.allReset();
   }

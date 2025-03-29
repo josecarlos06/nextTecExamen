@@ -19,7 +19,7 @@ export class TableComponent {
   displayedColumns: string[] = ['Nombre', 'Puesto', 'Fecha', 'Salario', 'Edad'];
 
   getBackgroundColor(nombre: string): string {
-    if (!nombre) return '#CCCCCC'; // Color gris por defecto si no hay nombre
+    if (!nombre) return '#CCCCCC';
     const primeraLetra = nombre.charAt(0).toUpperCase();
     return abecedarioUIColores[primeraLetra] || '#CCCCCC';
   }
