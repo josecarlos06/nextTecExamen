@@ -1,7 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatTableModule } from '@angular/material/table';
-import { ActionType, Job, User } from '../../interface';
+import { Component, Input } from '@angular/core';
+import { ActionType, User } from '../../interface';
 import { CommonModule } from '@angular/common';
 import { abecedarioUIColores } from '../../utils/index';
 
@@ -17,7 +15,7 @@ export class TableComponent {
   @Input() data: User[] = [];
   @Input() onAction!: (action: ActionType, user : User) => void;
   currentPage = 0;
-  pageSize = 8;
+  pageSize = 5;
   displayedColumns: string[] = ['Nombre', 'Puesto', 'Fecha', 'Salario', 'Edad'];
 
   getBackgroundColor(nombre: string): string {

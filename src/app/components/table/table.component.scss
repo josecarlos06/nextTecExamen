@@ -22,6 +22,7 @@
   justify-content: start;
   align-items: center;
   gap: 1rem;
+  width:15rem;
 }
 
 table {
@@ -32,7 +33,7 @@ table {
 
 th,
 td {
-  padding: .5rem;
+  padding: .5rem 1rem;
   text-align: left;
   border-bottom: 1px solid #ececec;
   text-align: center;
@@ -59,7 +60,7 @@ th {
   margin: 0 auto;
 
   button {
-    padding: .4rem 1.5rem;
+    padding: .4rem ;
     cursor: pointer;
     border: none;
     border-radius: 8px;
@@ -81,7 +82,7 @@ th {
 
   /* Botón de Editar (Verde) */
   button:first-child {
-    background: #2ECC71;
+    background: #64cf90;
     color: white;
   }
 

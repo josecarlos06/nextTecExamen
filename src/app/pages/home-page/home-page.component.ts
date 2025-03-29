@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { TableComponent } from "../../components/table/table.component";
-import { ActionType, Job, User } from '../../interface';
+import { ActionType, User } from '../../interface';
 import { FormAsideComponent } from '../../components/form-aside/form-aside.component';
 
 @Component({
@@ -12,14 +12,55 @@ import { FormAsideComponent } from '../../components/form-aside/form-aside.compo
 })
 export class HomePageComponent {
   user : User[] = [{
-    id : "1",
-    nombre : "carlos medina",
-    puesto : "developer",
-    fechaIngreso : "2025-03-28",
-    edad : 18,
-    salario : '10 al mes'
-  }]; 
-  
+    id: "1",
+    nombre: "Jose Carlos Medina Vasquez",
+    puesto: "Developer",
+    fechaIngreso: "2025-03-28",
+    edad: 18,
+    salario: "10 mil netos"
+  },
+  {
+    id: "2",
+    nombre: "Maria Garcia Lopez",
+    puesto: "Designer",
+    fechaIngreso: "2024-11-15",
+    edad: 25,
+    salario: "15 mil netos"
+  },
+  {
+    id: "3",
+    nombre: "Carlos Fernandez Perez",
+    puesto: "Project Manager",
+    fechaIngreso: "2023-06-10",
+    edad: 35,
+    salario: "20 mil netos"
+  },
+  {
+    id: "4",
+    nombre: "Ana Martinez Ruiz",
+    puesto: "QA Engineer",
+    fechaIngreso: "2022-09-22",
+    edad: 29,
+    salario: "18 mil netos"
+  },
+  {
+    id: "5",
+    nombre: "Luis Gomez Perez",
+    puesto: "Backend Developer",
+    fechaIngreso: "2021-04-05",
+    edad: 32,
+    salario: "22 mil netos"
+  },
+  {
+    id: "6",
+    nombre: "Sofia Ramírez Sanchez",
+    puesto: "Frontend Developer",
+    fechaIngreso: "2020-01-18",
+    edad: 26,
+    salario: "17 mil netos"
+  }
+]
+
   typeAction = signal<ActionType>('');
   isAction  = signal<boolean>(false);
   UserSelected = signal<User>(  {} as User);
@@ -38,6 +79,7 @@ export class HomePageComponent {
   onAction(action: ActionType, user?: User) {
     this.typeAction.set(action); 
     this.isAction.set(true);
+    
     if (action === 'agregar') {
       const newJob: User = {
         id: Date.now().toString(),
