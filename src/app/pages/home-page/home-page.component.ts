@@ -1,47 +1,82 @@
-import { Component } from '@angular/core';
-
-interface Job {
-  puesto: string,
-  empresa: string,
-  id: string
-}
+import { Component, signal } from '@angular/core';
+import { TableComponent } from "../../components/table/table.component";
+import { ActionType, Job, User } from '../../interface';
+import { FormAsideComponent } from '../../components/form-aside/form-aside.component';
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [],
+  imports: [TableComponent, FormAsideComponent],
   templateUrl: './home-page.component.html',
-  styleUrl: './home-page.component.scss'
+  styleUrl: './home-page.component.scss',
 })
 export class HomePageComponent {
-  job = <Job[]>[];
+  user : User[] = [{
+    id : "1",
+    nombre : "carlos medina",
+    puesto : "developer",
+    fechaIngreso : "2025-03-28",
+    edad : 18,
+    salario : '10 al mes'
+  }]; 
+  
+  typeAction = signal<ActionType>('');
+  isAction  = signal<boolean>(false);
+  UserSelected = signal<User>(  {} as User);
+  
 
-  constructor() {
-    this.getUserNames()
+
+  changeEvent ( event : Event ) {
+    const { name, value } = event.target as HTMLInputElement;
+    const data = {
+      ...this.UserSelected(),
+      [ name ]: value.trim()
+    }
+    this.UserSelected.set(data);
   }
 
-  async getUserNames() {
-    try {
-      const res = await fetch('https://67d0ea93825945773eb24739.mockapi.io/api/v1/getAllJobs#');
-      const data = await res.json();
-      this.job = data
-    } catch (err) {
-      console.log(err)
+  onAction(action: ActionType, user?: User) {
+    this.typeAction.set(action); 
+    this.isAction.set(true);
+    if (action === 'agregar') {
+      const newJob: User = {
+        id: Date.now().toString(),
+        nombre : '',
+        puesto: '',
+        fechaIngreso : '',
+        salario : '',
+        edad : 18
+      }
+      this.UserSelected.set(newJob);
+    }
+    if (action === 'editar' && user) {
+      this.UserSelected.set(user);
+    }
+    if (action === 'eliminar' && user) {
+      this.onDelete(user.id);
     }
   }
 
-  editUserName(job : Job){
-    const index = this.job.findIndex((u) => u.id === job.id);
-    this.job[index] = {...this.job[index] , ...job } ;
-  };
+  onEdit(user: User) {
+    const index = this.user.findIndex((u) => u.id === user.id);
+    this.user[index] = { ...this.user[index], ...user };
+    this.allReset();
+  }
 
-  deleteUser(id : string){
-    const filters = this.job.filter((u) => u.id !== id);
-    this.job = filters;
-  };
+  onDelete(id: string) {
+    const filters = this.user.filter((u) => u.id !== id); // Filtra el trabajo eliminado
+    this.user = filters;
+    this.allReset();
+  }
 
-  addUsers(job : Job){
-    const data = [...this.job, job]
-    this.job = data;
-  };
+  addUsers( user: User) {
+    this.user = [...this.user, user];
+    this.allReset();
+  }
+
+  allReset(){
+    this.isAction.set(false); 
+    this.typeAction.set(''); 
+    this.UserSelected.set({} as User);
+  }
 }

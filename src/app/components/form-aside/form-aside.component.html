@@ -1,0 +1,62 @@
+<aside class="aside" >
+   <h3 class="title">{{action}}</h3>
+   <p class="paragraph">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati</p>
+
+   @if(error()){
+      <p class="errors">{{error()}}</p>
+   }
+   <form (submit)="saveData($event)" autocomplete="off" class="form">
+
+      <div class="form__group">
+         <label for="name">Nombre</label>
+         <input name="nombre" [value]="data().nombre" (input)="changeEvent($event)" type="text" id="nombre"
+            placeholder="nombre" required>
+      </div>
+
+      <div class="form__group">
+         <label for="name">Puesto</label>
+
+         <!--  <input name="puesto" [value]="data().puesto" (input)="changeEvent($event)" type="text" id="puesto"
+            placeholder="puesto" required #txtPuesto> -->
+
+         <select name="puesto" [value]="data().puesto"  id="puesto" (change)="changeEvent($event)">
+            <option disabled [value]="data().puesto">{{data().puesto}}</option>
+            <option *ngFor="let item of job()" [value]="item.puesto">{{ item.puesto }}</option>
+         </select>
+      </div>
+
+      <div class="form__group">
+         <label for="name">Fecha Ingreso</label>
+         <input name="fechaIngreso" [value]="formatDate(data().fechaIngreso)" (input)="changeEvent($event)" type="date"
+            id="fechaIngreso" placeholder="fechaIngreso" required #txtPuesto>
+      </div>
+
+      <div class="form__group">
+         <label for="name">Salario</label>
+         <input name="salario" [value]="data().salario" (input)="changeEvent($event)" type="text" id="salario"
+            placeholder="salario" required #txtPuesto>
+      </div>
+
+      <div class="form__group">
+         <label for="name">Edad</label>
+         <input name="edad" [value]="data().edad" (input)="changeEvent($event)" type="number" id="edad"
+            placeholder="edad" required #txtPuesto>
+      </div>
+
+      <button class="botton__submit" type="submit">
+         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path
+               d="M7 19V13H17V19H19V7.82843L16.1716 5H5V19H7ZM4 3H17L21 7V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3ZM9 15V19H15V15H9Z">
+            </path>
+         </svg>
+         Guardar
+      </button>
+   </form>
+
+   <button (click)="onClose()" type="button" aria-label="Cerrar" title="Cerrar" tabindex="0" class="button__close">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+         class="size-6">
+         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+      </svg>
+   </button>
+</aside>

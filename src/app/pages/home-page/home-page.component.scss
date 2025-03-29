@@ -1,0 +1,30 @@
+
+.main__home{
+   background: #fff;
+   padding: 1rem;
+   margin-top:1rem;
+   border: 1px solid #ddd;
+   border-radius: .5rem;
+   border-top: .2rem solid rgb(13, 38, 93);
+}
+.section__action{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 1rem;
+}
+.section__button{
+   display: flex;
+   gap: 1rem;
+   align-items: center;
+   background: var(--primary-color);
+   color: #fff;
+   padding: .35rem;
+   border-radius: .5rem;
+   font-size: var(--ParagraphSize);
+   svg{
+      width: 1.5rem;
+      height: 1.5rem;
+      color: #fff;
+   }
+}

@@ -1,0 +1,143 @@
+.table-container {
+  width: 100%;
+  border-radius: .5rem;
+  border: 1px solid #ddd;
+  padding: 0;
+  margin-top: 1.5rem;
+  overflow-x: auto;
+}
+
+.circle {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user__info {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--ParagraphSize);
+}
+
+th,
+td {
+  padding: .5rem;
+  text-align: left;
+  border-bottom: 1px solid #ececec;
+  text-align: center;
+  font-weight: normal;
+  opacity: .9;
+}
+
+table th:first-child,
+table td:first-child {
+  text-align: start;
+}
+
+th {
+  text-align: center;
+  font-weight: 600;
+  background-color: #f9f9f9;
+}
+
+.action {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  width: max-content;
+  margin: 0 auto;
+
+  button {
+    padding: .4rem 1.5rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  }
+
+  button svg {
+    width: 1rem;
+    height: 1rem;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  /* Botón de Editar (Verde) */
+  button:first-child {
+    background: #2ECC71;
+    color: white;
+  }
+
+  button:first-child:hover {
+    background: #27AE60;
+    box-shadow: 0 2px 8px rgba(46, 204, 113, 0.3);
+  }
+
+  /* Botón de Eliminar (Rojo) */
+  button:last-child {
+    background: #E74C3C;
+    color: white;
+  }
+
+  button:last-child:hover {
+    background: #C44133;
+    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+  }
+
+  /* Efecto en el SVG al pasar el mouse */
+  button:hover svg {
+    transform: scale(1.1);
+  }
+}
+
+button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  width: max-content;
+  margin-top: 1rem;
+
+  .button-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    padding: .2rem;
+    border-radius: .4rem;
+    background: rgb(240, 240, 240);
+    border: 1px solid rgb(218, 218, 218);
+
+    svg {
+      width: 1rem;
+      height: 1rem;
+      color: gray;
+    }
+  }
+
+  span {
+    opacity: .7;
+  }
+}

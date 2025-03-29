@@ -1,30 +1,8 @@
-export const abecedarioUIColores = {
-   A: "#E74C3C",
-   B: "#6A1D9D",
-   C: "#2E8B57",
-   D: "#F39C12",
-   E: "#D84C2C",
-   F: "#1F6B46",
-   G: "#7A1A1A",
-   H: "#E67E22",
-   I: "#7A3F9D",
-   J: "#8EBC46",
-   K: "#9B2222",
-   L: "#17A899",
-   M: "#C68E17",
-   Ñ: "#C68E17",
-   N: "#C72C3C",
-   O: "#28B463",
-   P: "#E91E63",
-   Q: "#9B4D6A",
-   R: "#F39C12",
-   S: "#8B4513",
-   T: "#D2D07A",
-   U: "#A3B8D6",
-   V: "#6A1D9D",
-   W: "#68B830",
-   X: "#D84C2C",
-   Y: "#E74C3C",
-   Z: "#D500F9",
- };
- 
+export const abecedarioUIColores: { [key: string]: string } = {
+  A: '#FF5733', B: '#33FF57', C: '#3357FF', D: '#F4A460', E: '#DAA520',
+  F: '#B22222', G: '#008080', H: '#FF69B4', I: '#00FFFF', J: '#D2691E',
+  K: '#9ACD32', L: '#8A2BE2', M: '#FF4500', N: '#2E8B57', O: '#4B0082',
+  P: '#20B2AA', Q: '#FF6347', R: '#7FFF00', S: '#DC143C', T: '#00008B',
+  U: '#8B0000', V: '#4682B4', W: '#D2B48C', X: '#008000', Y: '#800000',
+  Z: '#FFD700'
+};

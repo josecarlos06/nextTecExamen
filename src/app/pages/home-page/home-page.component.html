@@ -1,7 +1,36 @@
-<main class="container">
-   <h3>Lista de empleados</h3>
-   <p>Bienvenido al apartado de usuarios, aqui podras dar de alta eliminar o editar nuevos usuarios</p>
+<main class="container main__home">
+   <section class="section__action">
+      <div>
+         <h3 class="title">Lista de usuarios</h3>
+         <p class="paragraph">
+            usuarios, aqui podras dar de alta eliminar o editar nuevos
+            usuarios</p>
+      </div>
 
+      <button class="section__button" (click)="onAction('agregar')">
+         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+         </svg>
+         Agregar nuevo trabajo
+      </button>
+   </section>
 
-   
+   <section class="section__table">
+      <app-table [data]="user" [onAction]="onAction.bind(this)" />
+   </section>
+
+   <section>
+      @if(this.isAction()){
+      <app-form 
+         [data]="this.UserSelected()" 
+         [changeEvent]="changeEvent.bind(this)"
+         [onEdit]="onEdit.bind(this)"
+         [action]="this.typeAction()" 
+         [addUsers]="addUsers.bind(this)"
+         [reset]="allReset.bind(this)"
+      />
+      }
+
+   </section>
 </main>
