@@ -35,3 +35,47 @@
       color: #fff;
    }
 }
+
+.toast {
+   position: fixed;
+   top: 4rem;
+   left: 9rem;
+   transform: translateY(-50%);
+   background-color: #ffffff;
+   border: 1px solid rgb(201, 201, 201);
+   color: rgb(62, 62, 62);
+   padding: .5rem 2rem;
+   border-radius: 5px;
+   font-size: .8rem;
+   z-index: 9999;
+   opacity: 0;
+   animation: fadeIn 1s ease-out forwards;
+   display: flex;
+   align-items: center;
+
+   gap: .5rem;
+   svg{
+      color: rgb(25, 184, 25);
+      width:1.5rem;
+   }
+ }
+ 
+ @keyframes fadeIn {
+   0% {
+     opacity: 0;
+     transform: translateX(-50%) translateY(30px); 
+   }
+   100% {
+     opacity: 1;
+     transform: translateX(-50%) translateY(0); 
+   }
+ }
+ 
+ .toast.persistent {
+   animation: none;
+   opacity: 1;
+ }
+ 
+ .toast p {
+   margin: 0;
+ }

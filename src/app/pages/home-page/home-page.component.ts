@@ -64,6 +64,7 @@ export class HomePageComponent {
   typeAction = signal<ActionType>('');
   isAction  = signal<boolean>(false);
   UserSelected = signal<User>(  {} as User);
+  showToast = signal<boolean>(false)
   
 
 
@@ -79,7 +80,7 @@ export class HomePageComponent {
   onAction(action: ActionType, user?: User) {
     this.typeAction.set(action); 
     this.isAction.set(true);
-    
+
     if (action === 'agregar') {
       const newJob: User = {
         id: Date.now().toString(),
@@ -103,6 +104,7 @@ export class HomePageComponent {
     const index = this.user.findIndex((u) => u.id === user.id);
     this.user[index] = { ...this.user[index], ...user };
     this.allReset();
+    
   }
 
   onDelete(id: string) {
@@ -120,5 +122,13 @@ export class HomePageComponent {
     this.isAction.set(false); 
     this.typeAction.set(''); 
     this.UserSelected.set({} as User);
+    this.triggerToast()
+  }
+
+  triggerToast() {
+    this.showToast.set(true);
+    setTimeout(() => {
+      this.showToast.set(false);
+    }, 5000);
   }
 }
